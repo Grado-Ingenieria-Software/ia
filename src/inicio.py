@@ -7,7 +7,7 @@ from pomdp_runner import PomdpRunner
 from util import RunnerParams
 
 #Elegir el Problema
-opciones = ["Tigre", "TAG", "Laberinto", "Indiana Jones"]
+opciones = ["Tigre", "LASER TAG", "Laberinto", "Indiana Jones"]
 imprimeMenu(opciones)
 opcionesNormalizadas = ["Tigre", "TAG", "Laberinto", "IndianaJones"]
 res = input("Elige un problema: ")
