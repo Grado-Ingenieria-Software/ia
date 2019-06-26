@@ -1,6 +1,0 @@
-digraph tmp {
-	rankdir=LR
-	"Bid = 0, N = 0" -> "Aid = 1, N = 0, V = 0.0" [label=listen]
-	"Bid = 0, N = 0" -> "Aid = 2, N = 0, V = 0.0" [label="open-left"]
-	"Bid = 0, N = 0" -> "Aid = 3, N = 0, V = 0.0" [label="open-right"]
-}
