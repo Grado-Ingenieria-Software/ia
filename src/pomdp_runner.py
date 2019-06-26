@@ -39,7 +39,7 @@ class PomdpRunner:
 
     def snapshot_tree(self, visualiser, tree, filename):
         visualiser.update(tree.root)
-        visualiser.render('./dev/snapshots/{}'.format(filename))  # TODO: parametrise the dev folder path
+        visualiser.render('./dev/snapshots/{}'.format(filename))
 
     def run(self, numeroEjecuciones,modo, algo, T, **kwargs):
         pasos = []
@@ -50,11 +50,11 @@ class PomdpRunner:
             if modo != "benchmark":
                 log.info('~~~ Inicializando ~~~')
             with PomdpParser(params.env_config) as ctx:
-                # creates model and solver
+                # Crea el modelo y el solucionador
                 model = self.create_model(ctx.copy_env())
                 pomdp = self.create_solver(algo, model)
 
-                # supply additional algo params
+                # Suministrar parámetros adicionales del algoritmo
                 belief = ctx.random_beliefs() if params.random_prior else ctx.generate_beliefs()
 
                 if algo == 'pbvi':
@@ -63,7 +63,7 @@ class PomdpRunner:
                 elif algo == 'pomcp':
                     pomdp.add_configs(budget, belief, **kwargs)
 
-            # have fun!
+            
             if modo != "benchmark":
                 log.info('''
                 ++++++++++++++++++++++
