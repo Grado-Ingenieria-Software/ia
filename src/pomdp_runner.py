@@ -108,6 +108,8 @@ class PomdpRunner:
                     condicionParada = action == "open-left" or action == "open-right" or i >= params.max_play
                 elif params.env == "TAG.POMDP":
                     condicionParada = action == "Catch"  or i >= params.max_play
+                elif params.env == "IndianaJones.POMDP":
+                    condicionParada = action == "izquierda" or action == "centro" or action == "derecha"  or i >= params.max_play
                 else:
                     condicionParada = i >= params.max_play
                 

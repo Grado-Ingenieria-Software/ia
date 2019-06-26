@@ -6,10 +6,11 @@ import multiprocessing
 from pomdp_runner import PomdpRunner
 from util import RunnerParams
 
+info = None
 #Elegir el Problema
-opciones = ["Tigre", "LASER TAG", "Laberinto", "Indiana Jones"]
-imprimeMenu(opciones)
-opcionesNormalizadas = ["Tigre", "TAG", "Laberinto", "IndianaJones"]
+opciones = ["Tigre", "LASER TAG", "Indiana Jones", "Anuncios Web"]
+imprimeMenu(opciones, info)
+opcionesNormalizadas = ["Tigre", "TAG", "IndianaJones", "AnunciosWeb"]
 res = input("Elige un problema: ")
 problema = opcionesNormalizadas[int(res)-1]
 
@@ -17,15 +18,17 @@ problema = opcionesNormalizadas[int(res)-1]
 opciones = ["POMCP", "PBVI"]
 if problema == "TAG":
     opciones = ["POMCP"]
+    info = """PBVI ha sido desactivado para este problema por motivos
+    de eficiencia."""
 opcionesNormalizadas = ["pomcp", "pbvi"]
-imprimeMenu(opciones)
+imprimeMenu(opciones, info)
 res = input("Elige un algoritmo : ")
 algoritmo = opcionesNormalizadas[int(res)-1]
 
 #Elegir el tipo de simulacion
 opciones = ["Simulación Iterativa", "Simulación Silenciosa", "Benchmark"]
 opcionesNormalizadas = ["iterativa", "silenciosa", "benchmark"]
-imprimeMenu(opciones)
+imprimeMenu(opciones, info)
 res = input("Elige un modo de simulación : ")
 modo = opcionesNormalizadas[int(res)-1]
 
