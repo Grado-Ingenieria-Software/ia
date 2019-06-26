@@ -101,9 +101,11 @@ class PomdpRunner:
                     '=' * 20
                     ]))
 
-                    if budget <= 0:
-                        log.info('Presupuesto superado.')
-                
+
+                if budget <= 0:
+                    log.info('Presupuesto superado.')
+                    break
+
                 if params.env == "Tigre.POMDP":
                     condicionParada = action == "open-left" or action == "open-right" or i >= params.max_play
                 elif params.env == "TAG.POMDP":

@@ -1,6 +1,6 @@
 from math import sqrt
  
-def gi(lista):
+def media(lista):
   s = 0
   for elemento in lista:
     s += elemento
