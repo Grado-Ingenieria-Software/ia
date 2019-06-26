@@ -1,5 +1,5 @@
 import os
-
+from funcionesGrafica import *
 from funcionesEstadistica import *
 from models import RockSampleModel, Model
 from solvers import POMCP, PBVI
@@ -131,12 +131,14 @@ class PomdpRunner:
             'Media de los pasos: {}'.format(media(pasos)),
             'Varianza de los pasos: {}'.format(varianza(pasos)),
             'Desviacion Tipida de los pasos: {}'.format(desviacion_tipica(pasos)),
+            'Grafica: {}'.format(generaGrafica(pasos)),
             '#' * 20
             ]))
             log.info('\n'.join([
             'Media de la recompensa: {}'.format(media(recompensas)),
             'Varianza de la recompensa: {}'.format(varianza(recompensas)),
             'Desviacion Tipida de la recompensa: {}'.format(desviacion_tipica(recompensas)),
+            'Grafica: {}'.format(generaGrafica(recompensas)),
             '#' * 20
             ]))
         return pomdp
