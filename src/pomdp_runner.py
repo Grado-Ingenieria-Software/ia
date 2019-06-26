@@ -97,7 +97,7 @@ class PomdpRunner:
                     'Presupuesto: {}'.format(budget),
                     'Nuevo estado: {}'.format(new_state),
                     'Nueva Creencia: {}'.format(belief),
-                    'Prueba numero: {}'.format(i),
+                    'Paso numero: {}'.format(i),
                     '=' * 20
                     ]))
 
