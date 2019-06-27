@@ -65,17 +65,20 @@ class menuPrincipal(QMainWindow):
 		
     def triggerMenu(self,q):
         if q.text()=="Tigre":
-            problema = 
+            problema = "Tigre"
             print("Problema tigre")
             self.ui.stackedWidget.setCurrentIndex(1)
         if q.text()=="TAG":
+            problema = "TAG"
             print("Problema TAG")
             self.ui.stackedWidget.setCurrentIndex(1)
         if q.text()=="Anuncios":
+            problema = "Anuncios"
             print("Problema Anuncios")
             self.ui.stackedWidget.setCurrentIndex(1)
         if q.text()=="IndianaJones":
-            print("Problema Inidiana")
+            problema = "IndianaJones"
+            print("Problema InidianaJones")
             self.ui.stackedWidget.setCurrentIndex(1)
         if q.text()=="Inicio":
             print("Inicio")
