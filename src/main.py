@@ -27,8 +27,8 @@ algoritmo = opcionesNormalizadas[int(res)-1]
 info = None
 
 #Elegir el tipo de simulacion
-opciones = ["Simulación Iterativa", "Simulación Silenciosa", "Benchmark"]
-opcionesNormalizadas = ["iterativa", "silenciosa", "benchmark"]
+opciones = ["Simulación Interactiva", "Simulación Silenciosa", "Benchmark"]
+opcionesNormalizadas = ["interactiva", "silenciosa", "benchmark"]
 imprimeMenu(opciones, info)
 res = input("Elige un modo de simulación : ")
 modo = opcionesNormalizadas[int(res)-1]

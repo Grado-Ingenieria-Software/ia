@@ -157,8 +157,8 @@ class elegirModoSimulacion(QWidget):
 
         plantilla.addWidget(QLabel("Elija el modo de simulacion:"))  
 
-        radiobutton = QRadioButton("Iterativa")
-        radiobutton.modo = "Iterativa"
+        radiobutton = QRadioButton("Interactiva")
+        radiobutton.modo = "Interactiva"
         radiobutton.toggled.connect(self.modoElegido)
         plantilla.addWidget(radiobutton)
 

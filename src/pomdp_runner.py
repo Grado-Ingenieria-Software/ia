@@ -89,7 +89,7 @@ class PomdpRunner:
                 budget -= cost
 
                 # print info
-                if modo == "iterativa":
+                if modo == "interactiva":
                     log.info('\n'.join([
                     'Accion tomada: {}'.format(action),
                     'Observacion: {}'.format(obs),
