@@ -75,6 +75,11 @@ class PomdpRunner:
                     Modo: {}
                 ++++++++++++++++++++++'''.format(model.curr_state, budget, belief, T, params.max_play, modo))
 
+            if modo == "interactiva":
+                res = input("¿Desea continuar? [S]/[N]")
+                if(res.lower() == "n"):
+                    return
+
             condicionParada = False
             i = 0
             while not condicionParada:
