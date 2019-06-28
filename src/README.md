@@ -1,10 +1,10 @@
-#POMPDP | IA | 2018/19
-##Requisitos
+# POMPDP | IA | 2018/19
+## Requisitos
 El programa debe ejecutarse desde el prompt de Anaconda, usando el comando
 `$ pip install -r requirements.txt`
 En caso de error con la librería graphviz.
 
-##Ejecución
+## Ejecución
 La información puede ser introducida mediante interfaz gráfica o mediante consola.
 ```
     //Mediante consola
@@ -14,5 +14,5 @@ La información puede ser introducida mediante interfaz gráfica o mediante cons
     $ python ./interfaz.py	
 ```
 
-##Salir de la ejecución
+## Salir de la ejecución
 En cualquier momento el usuario puede pulsar Ctrl + C para salir de la simulación/programa.
