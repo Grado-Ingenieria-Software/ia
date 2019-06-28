@@ -38,8 +38,8 @@ while True:
 
     #Elegir el maximo de acciones tomadas
     opciones = []
-    info = """El maximo de acciones es el numero de acciones maximas
-    que seran tomadas, en caso de no llegar a la condicion de parada.
+    info = """El máximo de acciones es el numero de acciones máximas
+    que serán tomadas, en caso de no llegar a la condición de parada.
     Por defecto 100 (pasos)"""
     imprimeMenu(opciones, info)
     res = input("Maximo de acciones: ")
@@ -73,8 +73,8 @@ while True:
     """
     Problema: {}
     Algoritmo: {}
-    Simulacion: {}
-    Nº pasos maximo: {}
+    Simulación: {}
+    Nº pasos máximo: {}
     Presupuesto: {}
     """.format(problema, algoritmo, modo, max_play, budget)
     )
