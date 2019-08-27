@@ -8,7 +8,7 @@ En caso de error con la librería graphviz. Instalar esta por separado.
 La información puede ser introducida mediante interfaz gráfica o mediante consola.
 ```
     //Mediante consola
-	$ python ./main.py
+    $ python ./main.py
 
     //Mediante interfaz gráfica
     $ python ./interfaz.py	
