@@ -7,6 +7,8 @@ import multiprocessing
 from pomdp_runner import PomdpRunner
 from util import RunnerParams
 
+import warnings
+warnings.filterwarnings('ignore')
 
 root = Tk()
 root.geometry('500x500')
