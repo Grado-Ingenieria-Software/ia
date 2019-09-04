@@ -117,6 +117,8 @@ class PomdpRunner:
                     condicionParada = action == "Catch"  or i >= params.max_play
                 elif params.env == "IndianaJones.POMDP":
                     condicionParada = action == "izquierda" or action == "centro" or action == "derecha"  or i >= params.max_play
+                elif params.env == "AnunciosWeb.POMDP":
+                    condicionParada = action == "A1" or action == "AN" or action == "A2"  or i >= params.max_play
                 else:
                     condicionParada = i >= params.max_play
                 

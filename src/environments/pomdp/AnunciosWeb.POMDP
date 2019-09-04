@@ -1,176 +1,65 @@
-# Simple example based upon the WWW
+# ANUNCION WEB
 
-# Scenario: You have a web site which offers a range of products and
-# you want to tailor the products offered or advertised to the type of
-# person that is visiting your site.  You do not want to interfere
-# with their browsing, so the only clues to their personality are the
-# products they seem to be interested in.
-
-values: reward
 discount: 0.95
+values: reward
+states: S1 S2 SN
+actions: A1 A2 AN CT1 CT2
+costs: 1 1 1 1 1 1
+observations: S1 S2 SN
 
-states: S1 S2 SN SX
-
-actions: A1 A2 AN
-
-observations: O1 O2 ON OB OX
-# Start state
-start: 0.0 0.0 0.0 1.0
-
-######################################################################
-# State transitions
-
-# If no one is at the web site, then the next person to visit is
-# equally likely to be of a certain type
-T: A1 : SX : S1 0.333333333333
-T: A1 : SX : S2 0.333333333333
-T: A1 : SX : SN 0.333333333333
-
-T: A2 : SX : S1 0.333333333333
-T: A2 : SX : S2 0.333333333333
-T: A2 : SX : SN 0.333333333333
-
-T: AN : SX : S1 0.333333333333
-T: AN : SX : S2 0.333333333333
-T: AN : SX : SN 0.333333333333
-
-# S1: If you advertise products of interest then they are more likely 
-# to stay than if you advertise uninteresting products.
-T: A1 : S1 : S1   0.80
-T: A1 : S1 : SX   0.20
-
-T: A2 : S1 : S1   0.50
-T: A2 : S1 : SX   0.50
-
-T: AN : S1 : S1   0.66666667
-T: AN : S1 : SX   0.33333333
-
-# S2: If you advertise products of interest then they are more likely 
-# to stay than if you advertise uninteresting products.
-T: A1 : S2 : S2   0.50
-T: A1 : S2 : SX   0.50
-
-T: A2 : S2 : S2   0.80
-T: A2 : S2 : SX   0.20
-
-T: AN : S2 : S2   0.66666667
-T: AN : S2 : SX   0.33333333
-
-# SN: 
-T: A1 : SN : SN   0.50
-T: A1 : SN : SX   0.50
-
-T: A2 : SN : SN   0.50
-T: A2 : SN : SX   0.50
-
-T: AN : SN : SN   0.75
-T: AN : SN : SX   0.25
+T: A1
+uniform
 
 
-######################################################################
-# Observation probabilities
+T: A2
+uniform
 
-# Deterministic observation of a disconnection
-O: A1 : SX : OX   1.0
+T: AN
+uniform
 
-# S1: More likely to look at products in their own interest
-O: A1 : S1 : O1   0.65
-O: A1 : S1 : O2   0.10
-O: A1 : S1 : ON   0.20
+T: CT1
+identity
 
-# S1: They'll buy a product with some probability, so the longer you
-# keep them at the site, the more chance there is they will buy.
-O: A1 : S1 : OB   0.05
+T: CT2
+identity
 
-# S2: More likely to look at products in their own interest
-O: A1 : S2 : O1   0.10
-O: A1 : S2 : O2   0.65
-O: A1 : S2 : ON   0.20
+O: CT1
+0.75 0.15 0.1
+0.15 0.75 0.1
+0.1 0.1 0.8
 
-# S1: They'll buy a product with some probability, so the longer you
-# keep them at the site, the more chance there is they will buy.
-O: A1 : S2 : OB   0.05
 
-# SN: More likely to look at products in their own interest
-O: A1 : SN : O1   0.20
-O: A1 : SN : O2   0.20
-O: A1 : SN : ON   0.55
+O: CT2
+0.15 0.75 0.1
+0.75 0.15 0.1
+0.1 0.1 0.8
 
-# SN: They'll buy a product with some probability, so the longer you
-# keep them at the site, the more chance there is they will buy.
-O: A1 : SN : OB   0.05
+O: A1
+uniform
 
-######################################################################
+O: A2
+uniform
 
-######################################################################
-# Observation probabilities
+O: AN
+uniform
 
-# Deterministic observation of a disconnection
-O: A2 : SX : OX   1.0
 
-# S1: More likely to look at products in their own interest
-O: A2 : S1 : O1   0.65
-O: A2 : S1 : O2   0.10
-O: A2 : S1 : ON   0.20
+R: CT1 : S1 : * : * -1
+R: CT1 : S2 : * : * -1
+R: CT1 : SN : * : * -1
 
-# S1: They'll buy a product with some probability, so the longer you
-# keep them at the site, the more chance there is they will buy.
-O: A2 : S1 : OB   0.05
+R: CT2 : S1 : * : * -1
+R: CT2 : S2 : * : * -1
+R: CT2 : SN : * : * -1
 
-# S2: More likely to look at products in their own interest
-O: A2 : S2 : O1   0.10
-O: A2 : S2 : O2   0.65
-O: A2 : S2 : ON   0.20
+R: A1 : S1 : * : * 10
+R: A1 : S2 : * : * -100
+R: A1 : SN : * : * -100
 
-# S1: They'll buy a product with some probability, so the longer you
-# keep them at the site, the more chance there is they will buy.
-O: A2 : S2 : OB   0.05
+R: A2 : S1 : * : * -100
+R: A2 : S2 : * : * -100
+R: A2 : SN : * : * 10
 
-# SN: More likely to look at products in their own interest
-O: A2 : SN : O1   0.20
-O: A2 : SN : O2   0.20
-O: A2 : SN : ON   0.55
-
-# SN: They'll buy a product with some probability, so the longer you
-# keep them at the site, the more chance there is they will buy.
-O: A2 : SN : OB   0.05
-
-######################################################################
-######################################################################
-# Observation probabilities
-
-# Deterministic observation of a disconnection
-O: AN : SX : OX   1.0
-
-# S1: More likely to look at products in their own interest
-O: AN : S1 : O1   0.65
-O: AN : S1 : O2   0.10
-O: AN : S1 : ON   0.20
-
-# S1: They'll buy a product with some probability, so the longer you
-# keep them at the site, the more chance there is they will buy.
-O: AN : S1 : OB   0.05
-
-# S2: More likely to look at products in their own interest
-O: AN : S2 : O1   0.10
-O: AN : S2 : O2   0.65
-O: AN : S2 : ON   0.20
-
-# S1: They'll buy a product with some probability, so the longer you
-# keep them at the site, the more chance there is they will buy.
-O: AN : S2 : OB   0.05
-
-# SN: More likely to look at products in their own interest
-O: AN : SN : O1   0.20
-O: AN : SN : O2   0.20
-O: AN : SN : ON   0.55
-
-# SN: They'll buy a product with some probability, so the longer you
-# keep them at the site, the more chance there is they will buy.
-O: AN : SN : OB   0.05
-
-######################################################################
-# Rewards
-
-R: * : * : * : OB  1.0
-
+R: AN : S1 : * : * -5
+R: AN : S2 : * : * -5 
+R: AN : SN : * : * -5
